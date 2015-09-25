@@ -4,7 +4,6 @@ var utils = require('../utils/utils'),
     ruleRegexp = /^R([1-9][0-9]*)\/T([0-9]+)\/C([1-9][0-9]*)\/(NM|NN)$/i;
 
 //actually not the same as in life and generations
-//TODO support Greenberg-Hastings model ?
 var getNeighbourMethod = function (methodId) {
     if (methodId === 'NN' || methodId === 'nn' || methodId === 'von-neumann') {
         return 'von-neumann';
@@ -26,8 +25,28 @@ var parseRuleString = function (ruleString) {
     } : null;
 };
 
+var cyclicFunction = function (currentValue, neighbours) {
+    var result,
+        nextValue = (currentValue + 1) % this.stateCount,
+        sum = neighbours.reduce(function (sum, neighbour) { return sum + (neighbour === nextValue ? 1 : 0); }, 0);
+
+    if (sum >= this.threshold) {
+        result = nextValue;
+    } else {
+        result = currentValue;
+    }
+
+    return result;
+};
+
 var cyclic = function (rule) {
-    return parseRuleString(rule);
+    var ruleDescription = parseRuleString(rule);
+
+    if (ruleDescription !== null) {
+        ruleDescription.process = cyclicFunction;
+    }
+
+    return ruleDescription;
 };
 
 module.exports = cyclic;
