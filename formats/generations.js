@@ -15,7 +15,7 @@ var parseRuleString = function (ruleString) {
     var extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
 
     return extractedRule ? {
-        format: 'generations',
+        ruleFormat: 'generations',
         ruleString: ruleString,
         survival: utils.splitStringInNumberArray(extractedRule[1]),
         birth: utils.splitStringInNumberArray(extractedRule[2]),

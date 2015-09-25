@@ -17,7 +17,7 @@ var parseRuleString = function (ruleString) {
     var extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
 
     return extractedRule ? {
-        format: 'cyclic',
+        ruleFormat: 'cyclic',
         ruleString: ruleString,
         threshold: parseInt(extractedRule[2], 10),
         stateCount: parseInt(extractedRule[3], 10),

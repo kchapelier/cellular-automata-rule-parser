@@ -15,7 +15,7 @@ var parseRuleString = function (ruleString) {
     var extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
 
     return extractedRule ? {
-        format: 'life',
+        ruleFormat: 'life',
         ruleString: ruleString,
         survival: utils.splitStringInNumberArray(extractedRule[1]),
         birth: utils.splitStringInNumberArray(extractedRule[2]),
@@ -25,7 +25,16 @@ var parseRuleString = function (ruleString) {
 };
 
 var lifeFunction = function (currentValue, neighbours) {
-    var result;
+    var result,
+        sum = neighbours.reduce(function (sum, neighbour) { return sum + neighbour }, 0);
+
+    if (currentValue === 0 && this.birth.indexOf(sum) > -1) {
+        result = 1;
+    } else if (currentValue === 1 && this.survival.indexOf(sum) > -1) {
+        result = 1;
+    } else {
+        result = 0;
+    }
 
     return result;
 };

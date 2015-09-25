@@ -4,6 +4,6 @@ The aim of this module is to provide a way to parse common cellular automata rul
 
 ## TODOLIST
 
-- [ ] Life : 2D, outer totalistic : S/B (with MV extension)
+- [X] Life : 2D, outer totalistic : S/B (with MV extension)
 - [ ] Generations : 2D, outer totalistic with decay : S/B/C (with MV extension)
 - [ ] Cyclic CA : 2D, cyclic totalistic : R/T/C/N
