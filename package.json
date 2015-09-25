@@ -1,0 +1,20 @@
+{
+  "name": "cellular-automata-rule-parser",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Parser for S/B, S/B/C and R/T/C/N cellular automata rule formats.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kchapelier/cellular-automata-rule-parser.git"
+  },
+  "author": "Kevin Chapelier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kchapelier/cellular-automata-rule-parser/issues"
+  },
+  "homepage": "https://github.com/kchapelier/cellular-automata-rule-parser"
+}
