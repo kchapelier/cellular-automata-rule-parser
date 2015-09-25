@@ -35,6 +35,8 @@ var generationsFunction = function (currentValue, neighbours) {
         result = 1;
     } else if (currentValue > 0) {
         result = (currentValue + 1) % this.stateCount;
+    } else {
+        result = 0;
     }
 
     return result;
