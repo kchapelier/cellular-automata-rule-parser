@@ -1,7 +1,6 @@
 {
   "name": "cellular-automata-rule-parser",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
   "description": "Parser for Life (S/B), Generations (S/B/C) and Cyclic (R/T/C/N) cellular automata rule formats.",
   "main": "index.js",
   "scripts": {
