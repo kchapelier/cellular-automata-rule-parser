@@ -1,10 +1,7 @@
 "use strict";
 
-var ruleRegexp = /^R?([1-9][0-9]*)\/T?([0-9]+)\/C?([1-9][0-9]*)\/(NM|NN)$/i;
-
-var stripWhitespaces = function (string) {
-    return string.replace(/\s/g, '');
-};
+var utils = require('../utils/utils'),
+    ruleRegexp = /^R?([1-9][0-9]*)\/T?([0-9]+)\/C?([1-9][0-9]*)\/(NM|NN)$/i;
 
 //actually not the same as in life and generations
 //TODO support Greenberg-Hastings model ?
@@ -17,7 +14,7 @@ var getNeighbourMethod = function (methodId) {
 };
 
 var parseRuleString = function (ruleString) {
-    var extractedRule = ruleRegexp.exec(stripWhitespaces(ruleString));
+    var extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
 
     return extractedRule ? {
         format: 'cyclic',
