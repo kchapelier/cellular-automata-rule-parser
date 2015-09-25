@@ -16,12 +16,12 @@ var parseRuleString = function (ruleString) {
 
     return extractedRule ? {
         format: 'generations',
-        original: ruleString,
-        s: utils.splitStringInNumberArray(extractedRule[1]),
-        b: utils.splitStringInNumberArray(extractedRule[2]),
-        c: parseInt(extractedRule[3], 10) || 1,
-        neighbourMethod: getNeighbourMethod(extractedRule[4]),
-        neighbourRange: parseInt(extractedRule[5], 10) || 1
+        ruleString: ruleString,
+        survival: utils.splitStringInNumberArray(extractedRule[1]),
+        birth: utils.splitStringInNumberArray(extractedRule[2]),
+        stateCount: parseInt(extractedRule[3], 10) || 1,
+        neighbourhoodType: getNeighbourMethod(extractedRule[4]),
+        neighbourhoodRange: parseInt(extractedRule[5], 10) || 1
     } : null;
 };
 

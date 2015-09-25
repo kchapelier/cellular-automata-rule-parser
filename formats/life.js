@@ -16,11 +16,11 @@ var parseRuleString = function (ruleString) {
 
     return extractedRule ? {
         format: 'life',
-        original: ruleString,
-        s: utils.splitStringInNumberArray(extractedRule[1]),
-        b: utils.splitStringInNumberArray(extractedRule[2]),
-        neighbourMethod: getNeighbourMethod(extractedRule[3]),
-        neighbourRange: parseInt(extractedRule[4], 10) || 1
+        ruleString: ruleString,
+        survival: utils.splitStringInNumberArray(extractedRule[1]),
+        birth: utils.splitStringInNumberArray(extractedRule[2]),
+        neighbourhoodType: getNeighbourMethod(extractedRule[3]),
+        neighbourhoodRange: parseInt(extractedRule[4], 10) || 1
     } : null;
 };
 

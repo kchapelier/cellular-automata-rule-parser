@@ -1,7 +1,7 @@
 "use strict";
 
 var utils = require('../utils/utils'),
-    ruleRegexp = /^R?([1-9][0-9]*)\/T?([0-9]+)\/C?([1-9][0-9]*)\/(NM|NN)$/i;
+    ruleRegexp = /^R([1-9][0-9]*)\/T([0-9]+)\/C([1-9][0-9]*)\/(NM|NN)$/i;
 
 //actually not the same as in life and generations
 //TODO support Greenberg-Hastings model ?
@@ -18,11 +18,11 @@ var parseRuleString = function (ruleString) {
 
     return extractedRule ? {
         format: 'cyclic',
-        original: ruleString,
-        t: parseInt(extractedRule[2], 10),
-        c: parseInt(extractedRule[3], 10),
-        neighbourMethod: getNeighbourMethod(extractedRule[4]),
-        neighbourRange: parseInt(extractedRule[1], 10) || 1
+        ruleString: ruleString,
+        threshold: parseInt(extractedRule[2], 10),
+        stateCount: parseInt(extractedRule[3], 10),
+        neighbourhoodType: getNeighbourMethod(extractedRule[4]),
+        neighbourhoodRange: parseInt(extractedRule[1], 10) || 1
     } : null;
 };
 
