@@ -25,8 +25,29 @@ var parseRuleString = function (ruleString) {
     } : null;
 };
 
+var generationsFunction = function (currentValue, neighbours) {
+    var result,
+        sum = neighbours.reduce(function (sum, neighbour) { return sum + (neighbour === 1 ? 1 : 0); }, 0);
+
+    if (currentValue === 0 && this.birth.indexOf(sum) > -1) {
+        result = 1;
+    } else if (currentValue === 1 && this.survival.indexOf(sum) > -1) {
+        result = 1;
+    } else if (currentValue > 0) {
+        result = (currentValue + 1) % this.stateCount;
+    }
+
+    return result;
+};
+
 var generations = function (rule) {
-    return parseRuleString(rule);
+    var ruleDescription = parseRuleString(rule);
+
+    if (ruleDescription !== null) {
+        ruleDescription.process = generationsFunction;
+    }
+
+    return ruleDescription;
 };
 
 module.exports = generations;

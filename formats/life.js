@@ -26,7 +26,7 @@ var parseRuleString = function (ruleString) {
 
 var lifeFunction = function (currentValue, neighbours) {
     var result,
-        sum = neighbours.reduce(function (sum, neighbour) { return sum + neighbour }, 0);
+        sum = neighbours.reduce(function (sum, neighbour) { return sum + neighbour; }, 0);
 
     if (currentValue === 0 && this.birth.indexOf(sum) > -1) {
         result = 1;
