@@ -9,21 +9,21 @@ var formats = {
 var parser = function (rule, format) {
     var result = null;
 
-    if (!!format) {
-        result = formats[format](rule);
-    } else {
-        for (format in formats) {
-            result = formats[format](rule);
+    if (typeof rule === 'string') {
+        if (!!format) {
+            result = !!formats[format] ? formats[format](rule) : null;
+        } else {
+            for (format in formats) {
+                result = formats[format](rule);
 
-            if (result !== null) {
-                break;
+                if (result !== null) {
+                    break;
+                }
             }
         }
     }
 
     return result;
 };
-
-console.log(parser('R7/T34/C13/NM'));
 
 module.exports = parser;
