@@ -1,0 +1,1 @@
+# cellular-automata-rule-parser
