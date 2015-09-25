@@ -48,51 +48,51 @@ It's the caller's responsibility to provide this array of neighbours.
 
 ### Life (S/B)
 
-```S23/B3```
+`S23/B3`
 
 The S and B are optional.
 
-```23/3```
+`23/3`
 
 Whitespaces can be used freely.
 
-```23 / 3```
+`23 / 3`
 
 The M and V extensions respectively sets the neighbourhood type to ```moore``` and ```von Neumann``` (the default is ```moore```).
 
-```23 / 3 M``` and ```23 / 3 V```
+`23 / 3 M` and `23 / 3 V`
 
 The range of neighbourhood can be specified after the M/V extension.
 
-```23 / 3 M 2```
+`23 / 3 M 2`
 
 ### Generations (S/B/C)
 
-```S6/B246/C3```
+`S6/B246/C3`
 
 The S, B and C are optional.
 
-```6/246/3```
+`6/246/3`
 
 Whitespaces can be used freely.
 
-```6 / 246 / 3```
+`6 / 246 / 3`
 
 The M and V extensions respectively sets the neighbourhood type to ```moore``` and ```von Neumann``` (the default is ```moore```).
 
-```6 / 246 / 3 M``` and ```6 / 246 / 3 V```
+`6 / 246 / 3 M` and `6 / 246 / 3 V`
 
 The range of neighbourhood can be specified after the M/V extension.
 
-```6 / 246 / 3 M 2```
+`6 / 246 / 3 M 2`
 
 ### Cyclic (R/T/C/N)
 
-```R2/T5/C3/NN```
+`R2/T5/C3/NN`
 
 Whitespaces can be used freely.
 
-```R2 / T5 / C3 / NN```
+`R2 / T5 / C3 / NN`
 
 ## Changelog
 
