@@ -20,7 +20,7 @@ npm test
 
 - Parse the most common Life rule format (S/B) with an extension to define its neighbourhood type and range.
 - Parse the Generations rule format (S/B/C) with an extension to define its neighbourhood type and range.
-- Parse the Cyclic CA rule format (R/T/C/N), without support for the Greenberg-Hastings model at the current time.
+- Parse the Cyclic CA rule format (R/T/C/N), with support for the Greenberg-Hastings model.
 
 ## Usage
 
@@ -94,7 +94,15 @@ Whitespaces can be used freely.
 
 `R2 / T5 / C3 / NN`
 
+The Greenberg-Hastings model can be enabled with the GH modifier.
+
+`R2 / T5 / C3 / NN / GH`
+
 ## Changelog
+
+### 0.0.2 (2015.09.26) :
+
+- Support the Greenberg-Hastings model in R/T/C/N rules.
 
 ### 0.0.1 (2015.09.25) :
 
@@ -103,7 +111,6 @@ Whitespaces can be used freely.
 
 ## Roadmap
 
-- Implement the Greenberg-Hastings model for the Cyclic CA rules.
 - Implement ```Vote for life``` rules.
 - Write better doc.
 - Implement ```NLUKY``` rules.
