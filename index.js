@@ -3,7 +3,8 @@
 var formats = {
     life: require('./formats/life'),
     generations: require('./formats/generations'),
-    cyclic: require('./formats/cyclic')
+    cyclic: require('./formats/cyclic'),
+    vote: require('./formats/vote')
 };
 
 var parser = function (rule, format) {
