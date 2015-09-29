@@ -1,7 +1,7 @@
 "use strict";
 
 var utils = require('../utils/utils'),
-    ruleRegexp = /^S?([0-8]*)\/B?([0-8]*)\/C?([1-9][0-9]*)([MV]?)([0-9]*)$/i;
+    ruleRegexp = /^S?([0-9]*)\/B?([0-9]*)\/C?([1-9][0-9]*)([MV]?)([0-9]*)$/i;
 
 var getNeighbourMethod = function (methodId) {
     if (methodId === 'V' || methodId === 'v' || methodId === 'von-neumann') {

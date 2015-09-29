@@ -100,6 +100,10 @@ The Greenberg-Hastings model can be enabled with the GH modifier.
 
 ## Changelog
 
+### ...
+
+- Support 9 as a valid value for S and B in S/B and S/B/C rules.
+
 ### 0.0.2 (2015.09.26) :
 
 - Support the Greenberg-Hastings model in R/T/C/N rules.
