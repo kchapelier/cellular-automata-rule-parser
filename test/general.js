@@ -7,7 +7,7 @@ describe('General', function () {
     describe('parsing', function () {
         it('should always return null for invalid rules', function () {
             should.equal(parser(''), null);
-            should.equal(parser(0), null);
+            should.equal(parser('TEST'), null);
             should.equal(parser(null), null);
         });
 
