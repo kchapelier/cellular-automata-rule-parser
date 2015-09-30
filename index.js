@@ -4,7 +4,8 @@ var formats = {
     life: require('./formats/life'),
     generations: require('./formats/generations'),
     cyclic: require('./formats/cyclic'),
-    vote: require('./formats/vote')
+    vote: require('./formats/vote'),
+    wolfram: require('./formats/wolfram')
 };
 
 var parser = function (rule, format) {
