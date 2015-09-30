@@ -17,16 +17,16 @@ var parseRuleString = function (ruleString) {
 };
 
 var wolframFunction = function (currentValue, neighbours) {
-    //TODO implement this
+    var binaryState = (neighbours[0] ? 4 : 0) + (currentValue ? 2 : 0) + (neighbours[1] ? 1 : 0);
 
-    return 0;
+    return (this.ruleNumber & Math.pow(2, binaryState) ? 1 : 0);
 };
 
 var wolfram = function (rule) {
     var ruleDescription = parseRuleString(rule);
 
     if (ruleDescription !== null) {
-        //ruleDescription.process = wolframFunction;
+        ruleDescription.process = wolframFunction;
     }
 
     return ruleDescription;

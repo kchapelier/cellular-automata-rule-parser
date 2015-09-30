@@ -37,19 +37,17 @@ describe('Wolfram rule format', function () {
     });
 
     describe('processing', function () {
-        /*
         it('should process the vote values correctly', function () {
-            var rule = parser('12');
+            var rule = parser('W22');
 
-            rule.process(0, [0,0,0,0,0,0,0,0]).should.equal(0);
-            rule.process(1, [0,0,0,0,0,0,0,0]).should.equal(1);
-            rule.process(0, [1,0,0,0,0,0,0,0]).should.equal(1);
-            rule.process(1, [1,0,0,0,0,0,0,0]).should.equal(1);
-            rule.process(0, [1,1,0,0,0,0,0,0]).should.equal(1);
-            rule.process(1, [1,1,0,0,0,0,0,0]).should.equal(0);
-            rule.process(0, [1,1,1,0,0,0,0,0]).should.equal(0);
-            rule.process(1, [1,1,1,0,0,0,0,0]).should.equal(0);
+            rule.process(0, [0,0]).should.equal(0);
+            rule.process(0, [0,1]).should.equal(1);
+            rule.process(0, [1,0]).should.equal(1);
+            rule.process(0, [1,1]).should.equal(0);
+            rule.process(1, [0,0]).should.equal(1);
+            rule.process(1, [0,1]).should.equal(0);
+            rule.process(1, [1,0]).should.equal(0);
+            rule.process(1, [1,1]).should.equal(0);
         });
-        */
     });
 });
