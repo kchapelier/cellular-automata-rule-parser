@@ -1,7 +1,7 @@
 {
   "name": "cellular-automata-rule-parser",
-  "version": "0.0.2",
-  "description": "Parser for Life (S/B), Generations (S/B/C) and Cyclic (R/T/C/N) cellular automata rule formats.",
+  "version": "0.0.3",
+  "description": "Parser for Life (S/B), Generations (S/B/C), Vote for Life, Wolfram and Cyclic (R/T/C/N) cellular automata rule formats.",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/"

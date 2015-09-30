@@ -1,6 +1,6 @@
 # cellular-automata-rule-parser
 
-Parser for Life, Generations and Cyclic cellular automata rule formats.
+Parser for Life, Generations, Vote for Life, Wolfram's Elementary CA and Cyclic CA rule formats.
 
 ## Installing and testing
 
@@ -20,7 +20,9 @@ npm test
 
 - Parse the most common Life rule format (S/B) with an extension to define its neighbourhood type and range.
 - Parse the Generations rule format (S/B/C) with an extension to define its neighbourhood type and range.
+- Parse the Vote for Life rule format (xxx) with an extension to define its neighbourhood type and range.
 - Parse the Cyclic CA rule format (R/T/C/N), with support for the Greenberg-Hastings model.
+- Parse the Wolfram's Elementary CA rule format (Wxxx).
 
 ## Usage
 
@@ -38,6 +40,7 @@ console.log(rule.process(1, [1,1,1,1,0,0,0,0])); // 0
 
 rule = parser('23/36'); // highlife
 rule = parser('/2/3'); // brian's brain
+rule = parser('W30'); // wolfram's rule 30
 ```
 
 The parser function accepts a rule string as argument and returns an object describing the rule with a process function.
@@ -86,7 +89,23 @@ The range of neighbourhood can be specified after the M/V extension.
 
 `6 / 246 / 3 M 2`
 
-### Cyclic (R/T/C/N)
+### Vote for Life
+
+`13579`
+
+Whitespaces can be used freely.
+
+`1 3 5 7 9`
+
+The M and V extensions respectively sets the neighbourhood type to ```moore``` and ```von Neumann``` (the default is ```moore```).
+
+`13579 M` and `13579 V`
+
+The range of neighbourhood can be specified after the M/V extension.
+
+`13579 M 2`
+
+### Cyclic CA (R/T/C/N)
 
 `R2/T5/C3/NN`
 
@@ -98,11 +117,21 @@ The Greenberg-Hastings model can be enabled with the GH modifier.
 
 `R2 / T5 / C3 / NN / GH`
 
+### Wolfram's Elementary CA
+
+`W30` or `Rule30`
+
+Whitespaces can be used freely.
+
+`W 30` or `Rule 30`
+
 ## Changelog
 
-### ...
+### 0.0.3 (2015.09.30)
 
-- Support 9 as a valid value for S and B in S/B and S/B/C rules.
+- Accept 9 as a valid value for S and B in S/B and S/B/C rules.
+- Support for "Vote for life" rules.
+- Support for "Wolfram" (elementary cellular automation) rules.
 
 ### 0.0.2 (2015.09.26) :
 
@@ -115,11 +144,10 @@ The Greenberg-Hastings model can be enabled with the GH modifier.
 
 ## Roadmap
 
-- Implement ```Vote for life``` rules.
 - Write better doc.
-- Implement ```NLUKY``` rules.
-- Implement Wolfram's elementary cellular automaton.
-- Implement a rule format for 3D/nD cellular automaton.
+- Work on perfs.
+- Implement NLUKY rules ?
+- Implement a rule format for 3D/nD cellular automaton (comma separated S/B/C ?)
 
 ## License
 
