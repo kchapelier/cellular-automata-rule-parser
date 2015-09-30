@@ -15,7 +15,7 @@ var parseRuleString = function (ruleString) {
     var extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
 
     return extractedRule ? {
-        ruleFormat: 'life',
+        ruleFormat: 'vote',
         ruleString: ruleString,
         vote: utils.splitStringInNumberArray(extractedRule[1]),
         neighbourhoodType: getNeighbourMethod(extractedRule[2]),
