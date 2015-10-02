@@ -20,6 +20,4 @@ utils.splitCommaSeparatedNumbers = function (string) {
     });
 };
 
-console.log(utils.splitCommaSeparatedNumbers('12,23,5,'));
-
 module.exports = utils;

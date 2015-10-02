@@ -1,6 +1,6 @@
 # cellular-automata-rule-parser
 
-Parser for Life, Generations, Vote for Life, Wolfram's Elementary CA and Cyclic CA rule formats.
+Parser for Life, Generations, Vote for Life, Wolfram's Elementary CA, Cyclic CA, LUKY and NLUKY rule formats.
 
 ## Installing and testing
 
@@ -23,6 +23,7 @@ npm test
 - Parse the Vote for Life rule format (xxx) with an extension to define its neighbourhood type and range.
 - Parse the Cyclic CA rule format (R/T/C/N), with support for the Greenberg-Hastings model.
 - Parse the Wolfram's Elementary CA rule format (Wxxx).
+- Parse the LUKY and NLUKY rule format (LUKY xxxx and NLUKY xxxxx).
 
 ## Usage
 
@@ -41,6 +42,7 @@ console.log(rule.process(1, [1,1,1,1,0,0,0,0])); // 0
 rule = parser('23/36'); // highlife
 rule = parser('/2/3'); // brian's brain
 rule = parser('W30'); // wolfram's rule 30
+rule = parser('LUKY 3323'); // conway's life in luky format
 ```
 
 The parser function accepts a rule string as argument and returns an object describing the rule with a process function.
@@ -125,9 +127,30 @@ Whitespaces can be used freely.
 
 `W 30` or `Rule 30`
 
+### LUKY
+
+`LUKY3323`
+
+Whitespaces can be used freely.
+
+`LUKY 3 3 2 3`
+
+### NLUKY
+
+`NLUKY03323`
+
+Whitespaces can be used freely.
+
+`NLUKY 0 3 3 2 3`
+
 ## Changelog
 
-### 0.0.3 (2015.09.30)
+### 0.0.4 (2015.10.02) :
+
+- Support for LUKY and NLUKY rules.
+- Support for "experimental" comma separated S/B variant (undocumented).
+
+### 0.0.3 (2015.09.30) :
 
 - Accept 9 as a valid value for S and B in S/B and S/B/C rules.
 - Support for "Vote for life" rules.
@@ -146,8 +169,6 @@ Whitespaces can be used freely.
 
 - Write better doc.
 - Work on perfs.
-- Implement NLUKY rules ?
-- Implement a rule format for 3D/nD cellular automaton (comma separated S/B/C ?)
 
 ## License
 
