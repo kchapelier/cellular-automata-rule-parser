@@ -5,7 +5,8 @@ var formats = {
     generations: require('./formats/generations'),
     cyclic: require('./formats/cyclic'),
     vote: require('./formats/vote'),
-    wolfram: require('./formats/wolfram')
+    wolfram: require('./formats/wolfram'),
+    luky: require('./formats/luky')
 };
 
 var parser = function (rule, format) {
