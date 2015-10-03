@@ -24,8 +24,14 @@ var parseRuleString = function (ruleString) {
 };
 
 var voteFunction = function (currentValue, neighbours) {
-    var result,
-        sum = neighbours.reduce(function (sum, neighbour) { return sum + neighbour; }, currentValue);
+    var index = 0,
+        sum = currentValue,
+        neighboursLength = neighbours.length,
+        result;
+
+    for (; index < neighboursLength; index++) {
+        sum = sum + neighbours[index];
+    }
 
     if (this.vote.indexOf(sum) > -1) {
         result = 1;

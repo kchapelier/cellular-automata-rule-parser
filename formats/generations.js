@@ -26,8 +26,14 @@ var parseRuleString = function (ruleString) {
 };
 
 var generationsFunction = function (currentValue, neighbours) {
-    var result,
-        sum = neighbours.reduce(function (sum, neighbour) { return sum + (neighbour === 1 ? 1 : 0); }, 0);
+    var index = 0,
+        sum = 0,
+        neighboursLength = neighbours.length,
+        result;
+
+    for (; index < neighboursLength; index++) {
+        sum = sum + neighbours[index];
+    }
 
     if (currentValue === 0 && this.birth.indexOf(sum) > -1) {
         result = 1;

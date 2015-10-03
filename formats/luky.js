@@ -19,8 +19,14 @@ var parseRuleString = function (ruleString) {
 };
 
 var lukyFunction = function (currentValue, neighbours) {
-    var result,
-        sum = neighbours.reduce(function (sum, neighbour) { return sum + (neighbour === 1 ? 1 : 0); }, 0);
+    var index = 0,
+        sum = 0,
+        neighboursLength = neighbours.length,
+        result;
+
+    for (; index < neighboursLength; index++) {
+        sum = sum + (neighbours[index] === 1 ? 1 : 0);
+    }
 
     if (currentValue === 0 && sum >= this.lowBirth && sum <= this.highBirth) {
         result = 1;

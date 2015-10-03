@@ -27,9 +27,15 @@ var parseRuleString = function (ruleString) {
 };
 
 var cyclicFunction = function (currentValue, neighbours) {
-    var result,
-        nextValue = (currentValue + 1) % this.stateCount,
-        sum = neighbours.reduce(function (sum, neighbour) { return sum + (neighbour === nextValue ? 1 : 0); }, 0);
+    var nextValue = (currentValue + 1) % this.stateCount,
+        index = 0,
+        sum = 0,
+        neighboursLength = neighbours.length,
+        result;
+
+    for (; index < neighboursLength; index++) {
+        sum = sum + (neighbours[index] === nextValue ? 1 : 0);
+    }
 
     if (sum >= this.threshold || (this.greenbergHastingsModel && currentValue !== 0)) {
         result = nextValue;
