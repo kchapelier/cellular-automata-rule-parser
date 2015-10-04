@@ -145,6 +145,10 @@ Whitespaces can be used freely.
 
 ## Changelog
 
+### 0.0.5 (2015.10.04) :
+
+- Performance optimization
+
 ### 0.0.4 (2015.10.02) :
 
 - Support for LUKY and NLUKY rules.
