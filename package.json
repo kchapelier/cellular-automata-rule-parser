@@ -1,7 +1,7 @@
 {
   "name": "cellular-automata-rule-parser",
-  "version": "0.0.5",
-  "description": "Parser for Life (S/B), Generations (S/B/C), Vote for Life, Wolfram, Cyclic (R/T/C/N), LUKY and NLUKY cellular automata rule formats.",
+  "version": "0.0.6",
+  "description": "Parser for Life (S/B), Generations (S/B/C), Vote for Life, Wolfram, Cyclic (R/T/C/N), LUKY and NLUKY cellular automata rule formats, as well as an extended Life rule format designed for 3D cellular automata.",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/"

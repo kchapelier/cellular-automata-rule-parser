@@ -1,6 +1,6 @@
 # cellular-automata-rule-parser
 
-Parser for Life, Generations, Vote for Life, Wolfram's Elementary CA, Cyclic CA, LUKY and NLUKY rule formats.
+Parser for Life, Generations, Vote for Life, Wolfram's Elementary CA, Cyclic CA, LUKY and NLUKY rule formats, as well as an extended Life rule format designed for 3D cellular automata.
 
 ## Installing and testing
 
@@ -24,6 +24,7 @@ npm test
 - Parse the Cyclic CA rule format (R/T/C/N), with support for the Greenberg-Hastings model.
 - Parse the Wolfram's Elementary CA rule format (Wxxx).
 - Parse the LUKY and NLUKY rule format (LUKY xxxx and NLUKY xxxxx).
+- Parse an extended comma-separated version of the Life rule format with support for ranges of values, specifically designed for 3D CA.
 
 ## Usage
 
@@ -171,6 +172,12 @@ Whitespaces can be used freely.
 
 ## Changelog
 
+### 0.0.6 (2015.10.13) :
+
+- Rename "experimental" S/B variant to "extended" S/B format.
+- Support ranges (X..X) for extended S/B format.
+- Document extended S/B format.
+
 ### 0.0.5 (2015.10.04) :
 
 - Performance optimization
@@ -199,6 +206,7 @@ Whitespaces can be used freely.
 
 - Write better doc.
 - Work on perfs.
+- Freeze the API and release 1.0.0.
 
 ## License
 
