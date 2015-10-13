@@ -15,7 +15,7 @@ var parseRuleString = function (ruleString) {
     var extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
 
     return extractedRule ? {
-        ruleFormat: 'experimental',
+        ruleFormat: 'extended',
         ruleString: ruleString,
         survival: utils.splitCommaSeparatedNumbersWithRanges(extractedRule[1]),
         birth: utils.splitCommaSeparatedNumbersWithRanges(extractedRule[2]),

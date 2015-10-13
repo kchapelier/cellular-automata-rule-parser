@@ -2,7 +2,7 @@
 
 var formats = {
     life: require('./formats/life'),
-    experimental: require('./formats/experimental'),
+    extended: require('./formats/extended'),
     generations: require('./formats/generations'),
     cyclic: require('./formats/cyclic'),
     vote: require('./formats/vote'),
