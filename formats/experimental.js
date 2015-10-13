@@ -1,7 +1,7 @@
 "use strict";
 
 var utils = require('../utils/utils'),
-    ruleRegexp = /^ES?([0-9,]*)\/B?([0-9,]*)([MV]?)([0-9]*)$/i;
+    ruleRegexp = /^ES?([0-9,.]*)\/B?([0-9,.]*)([MV]?)([0-9]*)$/i;
 
 var getNeighbourMethod = function (methodId) {
     if (methodId === 'V' || methodId === 'v' || methodId === 'von-neumann') {
@@ -17,8 +17,8 @@ var parseRuleString = function (ruleString) {
     return extractedRule ? {
         ruleFormat: 'experimental',
         ruleString: ruleString,
-        survival: utils.splitCommaSeparatedNumbers(extractedRule[1]),
-        birth: utils.splitCommaSeparatedNumbers(extractedRule[2]),
+        survival: utils.splitCommaSeparatedNumbersWithRanges(extractedRule[1]),
+        birth: utils.splitCommaSeparatedNumbersWithRanges(extractedRule[2]),
         neighbourhoodType: getNeighbourMethod(extractedRule[3]),
         neighbourhoodRange: parseInt(extractedRule[4], 10) || 1
     } : null;

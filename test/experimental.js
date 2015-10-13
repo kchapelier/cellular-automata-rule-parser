@@ -49,6 +49,30 @@ describe('Experimental life rule format (ES/B)', function () {
             rule.neighbourhoodType.should.equal('moore');
             rule.neighbourhoodRange.should.equal(13);
         });
+
+        it('should support ranges', function () {
+
+            var rule = parser('ES0..3/B0,2..4');
+
+            rule.ruleFormat.should.equal('experimental');
+            rule.ruleString.should.equal('ES0..3/B0,2..4');
+            rule.survival.should.deep.equal([0,1,2,3]);
+            rule.birth.should.deep.equal([0,2,3,4]);
+            rule.neighbourhoodType.should.equal('moore');
+            rule.neighbourhoodRange.should.equal(1);
+        });
+
+        it('should support inverted ranges', function () {
+
+            var rule = parser('ES2..1/B6..4');
+
+            rule.ruleFormat.should.equal('experimental');
+            rule.ruleString.should.equal('ES2..1/B6..4');
+            rule.survival.should.deep.equal([1,2]);
+            rule.birth.should.deep.equal([4,5,6]);
+            rule.neighbourhoodType.should.equal('moore');
+            rule.neighbourhoodRange.should.equal(1);
+        });
     });
 
     describe('processing', function () {
