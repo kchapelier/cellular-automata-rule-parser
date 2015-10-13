@@ -71,6 +71,32 @@ The range of neighbourhood can be specified after the M/V extension.
 
 `23 / 3 M 2`
 
+### Extended Life (ES/B)
+
+Extended life is a comma separated variant of the S/B format with additional support for ranges of values. The comma separated format allow to use number greater than 9 which is useful for 3D cellular automata.
+
+`ES2,3/B3`
+
+The S and B are optional, the E isn't.
+
+`E2,3/3`
+
+Whitespaces can be used freely.
+
+`E 2,3 / 3`
+
+The M and V extensions respectively sets the neighbourhood type to ```moore``` and ```von Neumann``` (the default is ```moore```).
+
+`E 2,3 / 3 M` and `E 2,3 / 3 V`
+
+The range of neighbourhood can be specified after the M/V extension.
+
+`E 2,3 / 3 M 2`
+
+Ranges of values can be specified with the X..X notation. The following rule matches all the values for 0 to 5 and 7 to 12 for survival.
+
+`ES0..5,7..12/B`
+
 ### Generations (S/B/C)
 
 `S6/B246/C3`
