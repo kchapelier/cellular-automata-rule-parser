@@ -11,18 +11,20 @@ var formats = {
     nluky: require('./formats/nluky')
 };
 
-var parser = function (rule, format) {
+var parser = function parser (ruleString, format) {
     var result = null;
 
-    if (typeof rule === 'string') {
+    if (typeof ruleString === 'string') {
         if (!!format) {
-            result = !!formats[format] ? formats[format](rule) : null;
+            result = !!formats[format] ? formats[format](ruleString) : null;
         } else {
             for (format in formats) {
-                result = formats[format](rule);
+                if (formats.hasOwnProperty(format)) {
+                    result = formats[format](ruleString);
 
-                if (result !== null) {
-                    break;
+                    if (result !== null) {
+                        break;
+                    }
                 }
             }
         }

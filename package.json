@@ -24,6 +24,10 @@
   "homepage": "https://github.com/kchapelier/cellular-automata-rule-parser",
   "devDependencies": {
     "chai": "^3.3.0",
+    "gulp": "^3.9.0",
+    "gulp-jscs": "^3.0.0",
+    "gulp-jshint": "^1.11.0",
+    "jshint-stylish": "^2.0.0",
     "mocha": "^2.3.3"
   }
 }
