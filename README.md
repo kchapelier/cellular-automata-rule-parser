@@ -1,5 +1,7 @@
 # cellular-automata-rule-parser
 
+[![Build Status](https://travis-ci.org/kchapelier/cellular-automata-rule-parser.svg)](https://travis-ci.org/kchapelier/cellular-automata-rule-parser) [![NPM version](https://badge.fury.io/js/cellular-automata-rule-parser.svg)](http://badge.fury.io/js/cellular-automata-rule-parser)
+
 Parser for Life, Generations, Vote for Life, Wolfram's Elementary CA, Cyclic CA, LUKY and NLUKY rule formats, as well as an extended Life rule format designed for 3D cellular automata.
 
 ## Installing and testing
@@ -10,7 +12,7 @@ With [npm](http://npmjs.org) do:
 npm install cellular-automata-rule-parser
 ```
 
-To run the test suite, run the following command from the ```cellular-automata-rule-parser``` directory:
+To run the test suite, clone this repository, install the dependencies and run the following command from the root directory:
 
 ```
 npm test
@@ -172,6 +174,12 @@ Whitespaces can be used freely.
 
 ## Changelog
 
+### 1.0.0 (2015.10.17) :
+
+- Remove the test folder from the NPM package.
+- Add linting and code style checking.
+- Add travis support (mocha tests only).
+
 ### 0.0.6 (2015.10.13) :
 
 - Rename "experimental" S/B variant to "extended" S/B format.
@@ -205,8 +213,6 @@ Whitespaces can be used freely.
 ## Roadmap
 
 - Write better doc.
-- Work on perfs.
-- Freeze the API and release 1.0.0.
 
 ## License
 
