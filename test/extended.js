@@ -50,6 +50,40 @@ describe('Extended life rule format (ES/B)', function () {
             rule.neighbourhoodRange.should.equal(13);
         });
 
+        it('should support fulltext neighbourhood type', function () {
+            var rule = parser('E0,12,31/2,34von-neumann');
+
+            rule.neighbourhoodType.should.equal('von-neumann');
+            rule.neighbourhoodRange.should.equal(1);
+
+            rule = parser('E0,12,31/2,34moore13');
+
+            rule.neighbourhoodType.should.equal('moore');
+            rule.neighbourhoodRange.should.equal(13);
+        });
+
+        it('should support the unconventional neighbourhood types axis, corner, edge and face', function () {
+            var rule = parser('E0,12,31/2,34axis');
+
+            rule.neighbourhoodType.should.equal('axis');
+            rule.neighbourhoodRange.should.equal(1);
+
+            rule = parser('E0,12,31/2,34corner3');
+
+            rule.neighbourhoodType.should.equal('corner');
+            rule.neighbourhoodRange.should.equal(3);
+
+            rule = parser('E0,12,31/2,34edge3');
+
+            rule.neighbourhoodType.should.equal('edge');
+            rule.neighbourhoodRange.should.equal(3);
+
+            rule = parser('E0,12,31/2,34face3');
+
+            rule.neighbourhoodType.should.equal('face');
+            rule.neighbourhoodRange.should.equal(3);
+        });
+
         it('should support ranges', function () {
 
             var rule = parser('ES0..3/B0,2..4');

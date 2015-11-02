@@ -1,13 +1,17 @@
 "use strict";
 
 var utils = require('../utils/utils'),
-    ruleRegexp = /^ES?([0-9,.]*)\/B?([0-9,.]*)([MV]?)([0-9]*)$/i;
+    ruleRegexp = /^ES?([0-9,.]*)\/B?([0-9,.]*)(M|V|von-neumann|moore|axis|corner|edge|face|)([0-9]*)$/i;
 
 var getNeighbourMethod = function (methodId) {
-    if (methodId === 'V' || methodId === 'v' || methodId === 'von-neumann') {
+    methodId = methodId.toLowerCase();
+
+    if (methodId === 'v') {
         return 'von-neumann';
-    } else {
+    } else if (methodId === 'm' || methodId === ''){
         return 'moore';
+    } else {
+        return methodId;
     }
 };
 

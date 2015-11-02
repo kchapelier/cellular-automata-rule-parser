@@ -26,7 +26,7 @@ npm test
 - Parse the Cyclic CA rule format (R/T/C/N), with support for the Greenberg-Hastings model.
 - Parse the Wolfram's Elementary CA rule format (Wxxx).
 - Parse the LUKY and NLUKY rule format (LUKY xxxx and NLUKY xxxxx).
-- Parse an extended comma-separated version of the Life rule format with support for ranges of values, specifically designed for 3D CA.
+- Parse an extended comma-separated version of the Life rule format with support for ranges of values and unconventional neighbourhood types, specifically designed for 3D CA.
 
 ## Usage
 
@@ -92,9 +92,17 @@ The M and V extensions respectively sets the neighbourhood type to ```moore``` a
 
 `E 2,3 / 3 M` and `E 2,3 / 3 V`
 
-The range of neighbourhood can be specified after the M/V extension.
+The neighbourhood type can also be defined in full text with 'moore' and 'von-neumann'.
 
-`E 2,3 / 3 M 2`
+`E 2,3 / 3 moore` and `E 2,3 / 3 von-neumann`
+
+More unconventional neighbourhood types are also accepted : ```axis```, ```corner```, ```edge``` and ```face```.
+
+`E 2,3 / 3 axis` and `E 2,3 / 3 corner` for example
+
+The range of neighbourhood can be specified after the neighbourhood type.
+
+`E 2,3 / 3 M 2` or `E 2,3 / 3 moore 2`
 
 Ranges of values can be specified with the X..X notation. The following rule matches all the values for 0 to 5 and 7 to 12 for survival.
 
@@ -173,6 +181,10 @@ Whitespaces can be used freely.
 `NLUKY 0 3 3 2 3`
 
 ## Changelog
+
+### 1.1.0 (2015.11.02) :
+
+- Make the extended S/B format recognize 'moore', 'von-neumann', 'axis', 'corner', 'edge' and 'face' as valid neighbourhood types.
 
 ### 1.0.0 (2015.10.17) :
 
