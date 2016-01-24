@@ -19,7 +19,7 @@ var parseRuleString = function (ruleString) {
     var extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
 
     return extractedRule ? {
-        ruleFormat: 'extended',
+        ruleFormat: 'extended-life',
         ruleString: ruleString,
         survival: utils.splitCommaSeparatedNumbersWithRanges(extractedRule[1]),
         birth: utils.splitCommaSeparatedNumbersWithRanges(extractedRule[2]),
@@ -28,7 +28,7 @@ var parseRuleString = function (ruleString) {
     } : null;
 };
 
-var experimentalFunction = function (currentValue, neighbours) {
+var extendedLifeFunction = function (currentValue, neighbours) {
     var index = 0,
         sum = 0,
         neighboursLength = neighbours.length,
@@ -49,14 +49,14 @@ var experimentalFunction = function (currentValue, neighbours) {
     return result;
 };
 
-var experimental = function (rule) {
+var extendedLife = function (rule) {
     var ruleDescription = parseRuleString(rule);
 
     if (ruleDescription !== null) {
-        ruleDescription.process = experimentalFunction;
+        ruleDescription.process = extendedLifeFunction;
     }
 
     return ruleDescription;
 };
 
-module.exports = experimental;
+module.exports = extendedLife;

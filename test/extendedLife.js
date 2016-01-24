@@ -8,7 +8,7 @@ describe('Extended life rule format (ES/B)', function () {
         it('should support the ESxx/Bxx format', function () {
             var rule = parser('ES0,12,31/B2,34');
 
-            rule.ruleFormat.should.equal('extended');
+            rule.ruleFormat.should.equal('extended-life');
             rule.ruleString.should.equal('ES0,12,31/B2,34');
             rule.survival.should.deep.equal([0,12,31]);
             rule.birth.should.deep.equal([2,34]);
@@ -19,7 +19,7 @@ describe('Extended life rule format (ES/B)', function () {
         it('should support the Exx/xx format', function () {
             var rule = parser('E0,12,31/2,34');
 
-            rule.ruleFormat.should.equal('extended');
+            rule.ruleFormat.should.equal('extended-life');
             rule.ruleString.should.equal('E0,12,31/2,34');
             rule.survival.should.deep.equal([0,12,31]);
             rule.birth.should.deep.equal([2,34]);
@@ -30,7 +30,7 @@ describe('Extended life rule format (ES/B)', function () {
         it('should tolerate whitespaces', function () {
             var rule = parser(' E 0,12,  3 1 / 2, 34 ');
 
-            rule.ruleFormat.should.equal('extended');
+            rule.ruleFormat.should.equal('extended-life');
             rule.ruleString.should.equal(' E 0,12,  3 1 / 2, 34 ');
             rule.survival.should.deep.equal([0,12,31]);
             rule.birth.should.deep.equal([2,34]);
@@ -88,7 +88,7 @@ describe('Extended life rule format (ES/B)', function () {
 
             var rule = parser('ES0..3/B0,2..4');
 
-            rule.ruleFormat.should.equal('extended');
+            rule.ruleFormat.should.equal('extended-life');
             rule.ruleString.should.equal('ES0..3/B0,2..4');
             rule.survival.should.deep.equal([0,1,2,3]);
             rule.birth.should.deep.equal([0,2,3,4]);
@@ -100,7 +100,7 @@ describe('Extended life rule format (ES/B)', function () {
 
             var rule = parser('ES2..1/B6..4');
 
-            rule.ruleFormat.should.equal('extended');
+            rule.ruleFormat.should.equal('extended-life');
             rule.ruleString.should.equal('ES2..1/B6..4');
             rule.survival.should.deep.equal([1,2]);
             rule.birth.should.deep.equal([4,5,6]);
