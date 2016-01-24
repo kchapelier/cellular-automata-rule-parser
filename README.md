@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kchapelier/cellular-automata-rule-parser.svg)](https://travis-ci.org/kchapelier/cellular-automata-rule-parser) [![NPM version](https://badge.fury.io/js/cellular-automata-rule-parser.svg)](http://badge.fury.io/js/cellular-automata-rule-parser)
 
-Parser for Life, Generations, Vote for Life, Wolfram's Elementary CA, Cyclic CA, LUKY and NLUKY rule formats, as well as an extended Life rule format designed for 3D cellular automata.
+Parser for Life, Generations, Vote for Life, Wolfram's Elementary CA, Cyclic CA, LUKY and NLUKY rule formats, as well as extended Life and Generations rule formats designed for 3D cellular automata.
 
 ## Installing and testing
 
@@ -26,7 +26,7 @@ npm test
 - Parse the Cyclic CA rule format (R/T/C/N), with support for the Greenberg-Hastings model.
 - Parse the Wolfram's Elementary CA rule format (Wxxx).
 - Parse the LUKY and NLUKY rule format (LUKY xxxx and NLUKY xxxxx).
-- Parse an extended comma-separated version of the Life rule format with support for ranges of values and unconventional neighbourhood types, specifically designed for 3D CA.
+- Parse extended comma-separated versions of the Life and Generations rule formats with support for ranges of values and unconventional neighbourhood types, specifically designed for 3D CA.
 
 ## Usage
 
@@ -128,6 +128,40 @@ The range of neighbourhood can be specified after the M/V extension.
 
 `6 / 246 / 3 M 2`
 
+### Extended Generations (ES/B/C)
+
+Extended life is a comma separated variant of the S/B format with additional support for ranges of values. The comma separated format allow to use number greater than 9 which is useful for 3D cellular automata.
+
+`ES2,3/B3/C2`
+
+The S, B and C are optional, the E isn't.
+
+`E2,3/3/2`
+
+Whitespaces can be used freely.
+
+`E 2,3 / 3 / 2`
+
+The M and V extensions respectively sets the neighbourhood type to ```moore``` and ```von Neumann``` (the default is ```moore```).
+
+`E 2,3 / 3 / 2 M` and `E 2,3 / 3 / 2 V`
+
+The neighbourhood type can also be defined in full text with 'moore' and 'von-neumann'.
+
+`E 2,3 / 3 / 2 moore` and `E 2,3 / 3 / 2 von-neumann`
+
+More unconventional neighbourhood types are also accepted : ```axis```, ```corner```, ```edge``` and ```face```.
+
+`E 2,3 / 3 / 2 axis` and `E 2,3 / 3 / 2 corner` for example
+
+The range of neighbourhood can be specified after the neighbourhood type.
+
+`E 2,3 / 3 / 2 M 2` or `E 2,3 / 3 / 2 moore 2`
+
+Ranges of values can be specified with the X..X notation. The following rule matches all the values for 0 to 5 and 7 to 12 for survival.
+
+`ES0..5,7..12/B/C2`
+
 ### Vote for Life
 
 `13579`
@@ -181,6 +215,13 @@ Whitespaces can be used freely.
 `NLUKY 0 3 3 2 3`
 
 ## Changelog
+
+### 2.0.0 (2016.01.24)
+
+- Support for "extended" comma separated S/B/C variant (extended-generations).
+- Rename "extended" to "extended-life".
+- Fix incorrect generations implementation.
+- Allow 9 as a valid value for LUKY and NLUKY rules.
 
 ### 1.1.0 (2015.11.02) :
 
