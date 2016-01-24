@@ -66,6 +66,15 @@ describe('Generations rule format (S/B/C)', function () {
             rule.process(1, [1,1,1,0,0,0,0,0]).should.equal(0);
         });
 
+        it('should not take values above 1 into account', function () {
+            var rule = parser('S1/B1/C2');
+
+            rule.process(1, [2,0,0,0,0,0,0,0]).should.equal(0);
+            rule.process(1, [2,1,0,0,0,0,0,0]).should.equal(1);
+            rule.process(0, [2,0,0,0,0,0,0,0]).should.equal(0);
+            rule.process(0, [2,1,0,0,0,0,0,0]).should.equal(1);
+        });
+
         it('should process the birth values correctly', function () {
             var rule = parser('S/B12/C2');
 

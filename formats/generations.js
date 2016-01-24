@@ -32,7 +32,7 @@ var generationsFunction = function (currentValue, neighbours) {
         result;
 
     for (; index < neighboursLength; index++) {
-        sum = sum + neighbours[index];
+        sum = sum + (neighbours[index] === 1 ? 1 : 0);
     }
 
     if (currentValue === 0 && this.birth.indexOf(sum) > -1) {
