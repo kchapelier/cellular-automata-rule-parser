@@ -32,6 +32,20 @@ describe('NLUKY rule format', function () {
             rule.neighbourhoodType.should.equal('moore');
             rule.neighbourhoodRange.should.equal(1);
         });
+
+        it('should accept 9 as a valid value', function () {
+            var rule = parser('NLUKY 99999');
+
+            rule.ruleFormat.should.equal('nluky');
+            rule.ruleString.should.equal('NLUKY 99999');
+            rule.stateCount.should.equal(9);
+            rule.lowBirth.should.equal(9);
+            rule.highBirth.should.equal(9);
+            rule.lowSurvival.should.equal(9);
+            rule.highSurvival.should.equal(9);
+            rule.neighbourhoodType.should.equal('moore');
+            rule.neighbourhoodRange.should.equal(1);
+        });
     });
 
     describe('processing', function () {

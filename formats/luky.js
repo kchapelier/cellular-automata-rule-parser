@@ -1,7 +1,7 @@
 "use strict";
 
 var utils = require('../utils/utils'),
-    ruleRegexp = /^LUKY([0-8])([0-8])([0-8])([0-8])$/i;
+    ruleRegexp = /^LUKY([0-9])([0-9])([0-9])([0-9])$/i;
 
 var parseRuleString = function (ruleString) {
     var extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
