@@ -4,6 +4,7 @@ var formats = {
     life: require('./formats/life'),
     extendedLife: require('./formats/extendedLife'),
     generations: require('./formats/generations'),
+    extendedGenerations: require('./formats/extendedGenerations'),
     cyclic: require('./formats/cyclic'),
     vote: require('./formats/vote'),
     wolfram: require('./formats/wolfram'),
