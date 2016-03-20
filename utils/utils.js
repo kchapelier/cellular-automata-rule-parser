@@ -51,4 +51,18 @@ utils.appendRangeToArray = function (min, max, array) {
     }
 };
 
+utils.appendRangeToObjectWithProbability = function (min, max, probability, object) {
+    var tmp;
+
+    if (min > max) {
+        tmp = max;
+        max = min;
+        min = tmp;
+    }
+
+    for (; min <= max; min++) {
+        object[min] = probability;
+    }
+};
+
 module.exports = utils;

@@ -3,6 +3,7 @@
 var formats = {
     life: require('./formats/life'),
     extendedLife: require('./formats/extendedLife'),
+    extendedStochastic: require('./formats/extendedStochastic'),
     generations: require('./formats/generations'),
     extendedGenerations: require('./formats/extendedGenerations'),
     cyclic: require('./formats/cyclic'),
