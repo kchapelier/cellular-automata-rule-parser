@@ -26,7 +26,8 @@ npm test
 - Parse the Cyclic CA rule format (R/T/C/N), with support for the Greenberg-Hastings model.
 - Parse the Wolfram's Elementary CA rule format (Wxxx).
 - Parse the LUKY and NLUKY rule format (LUKY xxxx and NLUKY xxxxx).
-- Parse extended comma-separated versions of the Life and Generations rule formats with support for ranges of values and unconventional neighbourhood types, specifically designed for 3D CA.
+- Parse an extended comma-separated versions of the Life and Generations rule formats with support for ranges of values and unconventional neighbourhood types, specifically designed for 3D CA.
+- Parse an extended comma-separated versions of the Life with stochastic properties (probability).
 
 ## Usage
 
@@ -107,6 +108,14 @@ The range of neighbourhood can be specified after the neighbourhood type.
 Ranges of values can be specified with the X..X notation. The following rule matches all the values for 0 to 5 and 7 to 12 for survival.
 
 `ES0..5,7..12/B`
+
+### Extended Stochastic (ES:x/B:x)
+
+The extended stochastic format is identical to the extended life with an added notation to add notation per value or range of values.
+
+The probability, a decimal number between 0 and 1 suffixed with a colon, can be added after the value or range of value.
+
+`E 0..5:0.2 / 8:0.95`
 
 ### Generations (S/B/C)
 
