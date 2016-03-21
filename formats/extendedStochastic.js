@@ -62,22 +62,22 @@ var parseRuleString = function (ruleString) {
     } : null;
 };
 
-var extendedStochasticFunction = function (currentValue, neighbours) {
+var extendedStochasticFunction = function (currentValue, neighbours, rng) {
     var index = 0,
         sum = 0,
         neighboursLength = neighbours.length,
         result;
 
-    var rng = Math.random();
+    rng = rng || Math.random;
 
     for (; index < neighboursLength; index++) {
         sum = sum + neighbours[index];
     }
 
     if (currentValue === 0 && !!this.birth[sum]) {
-        result = (this.birth[sum] === 1 || this.birth[sum] < rng()) ? 1 : 0;
+        result = (this.birth[sum] === 1 || this.birth[sum] > rng()) ? 1 : 0;
     } else if (currentValue === 1 && !!this.survival[sum]) {
-        result = (this.survival[sum] === 1 || this.survival[sum] < rng()) ? 1 : 0;
+        result = (this.survival[sum] === 1 || this.survival[sum] > rng()) ? 1 : 0;
     } else {
         result = 0;
     }
@@ -85,7 +85,7 @@ var extendedStochasticFunction = function (currentValue, neighbours) {
     return result;
 };
 
-var extendedLife = function (rule) {
+var extendedStochastic = function (rule) {
     var ruleDescription = parseRuleString(rule);
 
     if (ruleDescription !== null) {
@@ -95,4 +95,4 @@ var extendedLife = function (rule) {
     return ruleDescription;
 };
 
-module.exports = extendedLife;
+module.exports = extendedStochastic;

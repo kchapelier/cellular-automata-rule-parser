@@ -156,6 +156,16 @@ describe('Extended stochastic rule format (ES:x/B:x)', function () {
             rule.process(1, [1,1,1,0,0,0,0,0]).should.equal(0);
         });
 
-        //TODO test the stochastic property of the rule format
+        it('should take into account the probabilities', function () {
+            var rule = parser('ES/B0:0.5');
+
+            rule.process(0, [0,0,0,0,0,0,0,0], function riggedRng1() { return 1; }).should.equal(0);
+            rule.process(0, [0,0,0,0,0,0,0,0], function riggedRng0() { return 0; }).should.equal(1);
+
+            rule = parser('ES0:0.5/B');
+
+            rule.process(1, [0,0,0,0,0,0,0,0], function riggedRng1() { return 1; }).should.equal(0);
+            rule.process(1, [0,0,0,0,0,0,0,0], function riggedRng0() { return 0; }).should.equal(1);
+        });
     });
 });
