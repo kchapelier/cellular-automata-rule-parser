@@ -113,7 +113,7 @@ Ranges of values can be specified with the X..X notation. The following rule mat
 
 The extended stochastic format is identical to the extended life with an added notation to add notation per value or range of values.
 
-The probability, a decimal number between 0 and 1 suffixed with a colon, can be added after the value or range of value.
+The probability of survival or birth, a decimal number between 0 and 1 suffixed with a colon, can be added after the value or range of value.
 
 `E 0..5:0.2 / 8:0.95`
 
@@ -224,6 +224,10 @@ Whitespaces can be used freely.
 `NLUKY 0 3 3 2 3`
 
 ## Changelog
+
+### 2.1.0 (2016.03.22)
+
+- Support for "extended stochastic" format.
 
 ### 2.0.0 (2016.01.24)
 
