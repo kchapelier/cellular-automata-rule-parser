@@ -35,4 +35,16 @@ var parser = function parser (ruleString, format) {
     return result;
 };
 
+var time = Date.now();
+
+var rule = parser('E 3,2 / 3');
+var c = 0;
+var neighbours = [1,1,0,0,0,0,0,0];
+
+for (var i = 0; i < 30000000; i++) {
+    c+= rule.process(Math.random() * 2 | 0, neighbours)
+}
+console.log(c);
+console.log((Date.now() - time) + ' ms');
+
 module.exports = parser;
