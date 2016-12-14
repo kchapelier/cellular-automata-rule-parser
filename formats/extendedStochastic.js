@@ -25,6 +25,7 @@ var parseStochasticArgs = function (string) {
         result = {},
         expression,
         rangeMatch,
+        parsedValue,
         probabilityMatch,
         probability,
         i = 0;
@@ -41,7 +42,10 @@ var parseStochasticArgs = function (string) {
             if (rangeMatch) {
                 utils.appendRangeToObjectWithProbability(parseInt(rangeMatch[1], 10), parseInt(rangeMatch[2], 10), probability, result);
             } else {
-                result[parseInt(expression, 10)] = probability;
+                parsedValue = parseInt(expression, 10);
+                if (!isNaN(parsedValue)) {
+                    result[parsedValue] = probability;
+                }
             }
         }
     }

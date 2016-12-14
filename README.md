@@ -225,6 +225,10 @@ Whitespaces can be used freely.
 
 ## Changelog
 
+### 2.1.1 (2016.12.14)
+
+- Fix an issue with "extended stochastic" format returning NaN values in the rule description (not affecting the actual process function).
+
 ### 2.1.0 (2016.03.22)
 
 - Support for "extended stochastic" format.

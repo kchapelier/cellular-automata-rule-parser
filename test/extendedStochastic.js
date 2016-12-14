@@ -120,6 +120,24 @@ describe('Extended stochastic rule format (ES:x/B:x)', function () {
             rule.neighbourhoodType.should.equal('moore');
             rule.neighbourhoodRange.should.equal(1);
         });
+
+        it ('should correctly support empty values', function () {
+            var rule = parser('ES/B0:1');
+
+            rule.ruleFormat.should.equal('extended-stochastic');
+            rule.ruleString.should.equal('ES/B0:1');
+
+            rule.survival.should.deep.equal({});
+            rule.birth.should.deep.equal({ 0: 1 });
+
+            rule = parser('ES0:1/B');
+
+            rule.ruleFormat.should.equal('extended-stochastic');
+            rule.ruleString.should.equal('ES0:1/B');
+
+            rule.survival.should.deep.equal({0: 1});
+            rule.birth.should.deep.equal({});
+        });
     });
 
     describe('processing', function () {
