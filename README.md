@@ -111,7 +111,7 @@ Ranges of values can be specified with the X..X notation. The following rule mat
 
 ### Extended Stochastic (ES:x/B:x)
 
-The extended stochastic format is identical to the extended life with an added notation to add notation per value or range of values.
+The extended stochastic format is identical to the extended life with an added notation to add a probability per value or range of values.
 
 The probability of survival or birth, a decimal number between 0 and 1 suffixed with a colon, can be added after the value or range of value.
 
@@ -225,15 +225,24 @@ Whitespaces can be used freely.
 
 ## Changelog
 
-### 2.1.1 (2016.12.14)
+### 3.0.0 (2019.04.19)
+
+- Minor refactoring.
+- Reduce npm package size.
+- Update (and greatly reduce the number of) dev dependencies.
+- Remove linting and code style checking.
+- Change node versions tested with travis.
+- Less direct support for older browser (now use `const` and `let` variable declarations).
+
+### 2.1.1 (2016.12.14) :
 
 - Fix an issue with "extended stochastic" format returning NaN values in the rule description (not affecting the actual process function).
 
-### 2.1.0 (2016.03.22)
+### 2.1.0 (2016.03.22) :
 
 - Support for "extended stochastic" format.
 
-### 2.0.0 (2016.01.24)
+### 2.0.0 (2016.01.24) :
 
 - Support for "extended" comma separated S/B/C variant (extended-generations).
 - Rename "extended" to "extended-life".
