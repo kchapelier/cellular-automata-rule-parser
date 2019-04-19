@@ -1,55 +1,35 @@
 "use strict";
 
-var utils = require('../utils/utils'),
-    ruleRegexp = /^([0-9]+)([MV]?)([0-9]*)$/i;
+const utils = require('../utils/utils');
+const ruleRegexp = /^([0-9]+)([MV]?)([0-9]*)$/i;
 
-var getNeighbourMethod = function (methodId) {
-    if (methodId === 'V' || methodId === 'v' || methodId === 'von-neumann') {
-        return 'von-neumann';
-    } else {
-        return 'moore';
-    }
+function getNeighbourMethod (methodId) {
+  if (methodId === 'V' || methodId === 'v' || methodId === 'von-neumann') {
+    return 'von-neumann';
+  } else {
+    return 'moore';
+  }
+}
+
+function voteFunction (currentValue, neighbours) {
+  let sum = currentValue;
+
+  for (let index = 0; index < neighbours.length; index++) {
+    sum = sum + neighbours[index];
+  }
+
+  return this.vote.indexOf(sum) > -1 ? 1 : 0;
+}
+
+module.exports = function parseRuleString (ruleString) {
+  const extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
+
+  return extractedRule ? {
+    process: voteFunction,
+    ruleFormat: 'vote',
+    ruleString: ruleString,
+    vote: utils.splitStringInNumberArray(extractedRule[1]),
+    neighbourhoodType: getNeighbourMethod(extractedRule[2]),
+    neighbourhoodRange: parseInt(extractedRule[3], 10) || 1
+  } : null;
 };
-
-var parseRuleString = function (ruleString) {
-    var extractedRule = ruleRegexp.exec(utils.stripWhitespaces(ruleString));
-
-    return extractedRule ? {
-        ruleFormat: 'vote',
-        ruleString: ruleString,
-        vote: utils.splitStringInNumberArray(extractedRule[1]),
-        neighbourhoodType: getNeighbourMethod(extractedRule[2]),
-        neighbourhoodRange: parseInt(extractedRule[3], 10) || 1
-    } : null;
-};
-
-var voteFunction = function (currentValue, neighbours) {
-    var index = 0,
-        sum = currentValue,
-        neighboursLength = neighbours.length,
-        result;
-
-    for (; index < neighboursLength; index++) {
-        sum = sum + neighbours[index];
-    }
-
-    if (this.vote.indexOf(sum) > -1) {
-        result = 1;
-    } else {
-        result = 0;
-    }
-
-    return result;
-};
-
-var vote = function (rule) {
-    var ruleDescription = parseRuleString(rule);
-
-    if (ruleDescription !== null) {
-        ruleDescription.process = voteFunction;
-    }
-
-    return ruleDescription;
-};
-
-module.exports = vote;
