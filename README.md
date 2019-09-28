@@ -225,6 +225,10 @@ Whitespaces can be used freely.
 
 ## Changelog
 
+### 3.0.1 (2019.09.28)
+
+- Update dev dependencies.
+
 ### 3.0.0 (2019.04.19)
 
 - Minor refactoring.
